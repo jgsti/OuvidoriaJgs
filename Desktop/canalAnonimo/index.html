@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canal de Denúncias Anônimas JGS</title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <body>
+    <!-- Overlay de Termos LGPD -->
+    <div id="terms-overlay" class="terms-overlay">
+        <div class="terms-modal">
+            <div class="terms-header">
+                <h2>📋 Termos de Uso e LGPD</h2>
+                <p>Leia atentamente antes de prosseguir</p>
+            </div>
+            
+            <div class="terms-content">
+                <div class="terms-text">
+                    <div class="highlight-box">
+                        <strong>🛡️ Proteção de Dados e Confidencialidade</strong><br>
+                        Seus dados são tratados com máxima segurança conforme a LGPD.
+                    </div>
+
+                    <h3>📝 Responsabilidade pelas Informações</h3>
+                    <p>A veracidade das informações fornecidas é de <strong>responsabilidade exclusiva do relator</strong>. Todas as informações serão verificadas durante o processo de apuração, e as ações decorrentes serão tomadas a critério exclusivo da <strong>JGS</strong>.</p>
+
+                    <h3>🔒 Confidencialidade</h3>
+                    <p>Todas as informações registradas serão tratadas de forma <strong>estritamente confidencial</strong> pelo setor responsável da JGS.</p>
+
+                    <h3>🎯 Finalidade da Coleta</h3>
+                    <p>A coleta dessas informações tem como finalidade a apuração de possíveis <strong>condutas antiéticas</strong>, violações aos <strong>princípios éticos e padrões de conduta</strong> da empresa, bem como à <strong>legislação vigente</strong>.</p>
+
+                    <h3>📂 Armazenamento e Uso dos Dados</h3>
+                    <p>Todos os relatos serão armazenados por <strong>tempo indeterminado</strong>, exclusivamente para fins de apuração e deliberação sobre o caso, conforme as exigências legais.</p>
+                    
+                    <p>Informações consolidadas poderão ser utilizadas para fins estatísticos, <strong>sem a identificação de nomes ou dados pessoais</strong>.</p>
+
+                    <h3>⚖️ Conformidade com a LGPD</h3>
+                    <p>Eventuais <strong>dados pessoais</strong> informados serão tratados conforme a legislação vigente, especialmente com a <strong>Lei Geral de Proteção de Dados Pessoais (LGPD)</strong>, e serão utilizados pela <strong>JGS</strong> no processo de captação, análise e apuração dos relatos.</p>
+
+                    <div class="highlight-box">
+                        <strong>⚠️ Declaração de Ciência</strong><br>
+                        Ao prosseguir, você declara estar ciente e de acordo com o fornecimento das informações, que serão utilizadas <strong>exclusivamente para os fins descritos</strong>.
+                    </div>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="accept-terms">
+                    <label for="accept-terms">
+                        Li e aceito os termos de uso, estou ciente sobre o tratamento dos meus dados conforme a LGPD e concordo com o fornecimento das informações para os fins descritos.
+                    </label>
+                </div>
+            </div>
+
+            <div class="terms-actions">
+                <button class="btn btn-outline" onclick="rejectTerms()">❌ Não Aceito</button>
+                <button id="accept-btn" class="btn" onclick="acceptTerms()" disabled>✅ Aceito os Termos</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sistema Principal -->
+    <div class="container">
+        <div class="header">
+            <h1>Canal de Denúncias JGS</h1>
+            <p>Sistema 100% anônimo e seguro</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('report')">📝 Nova Denúncia</button>
+            <button class="nav-tab" onclick="showTab('check')">🔍 Consultar Denúncia</button>
+            <button class="nav-tab" onclick="showTab('admin')">⚙️ Administração</button>
+        </div>
+
+        <div class="content">
+            <!-- Aba Nova Denúncia -->
+            <div id="report-tab" class="tab-content active">
+                <div class="anonymous-notice">
+                    🔒 Sua identidade será mantida completamente anônima. Não coletamos dados pessoais.
+                </div>
+
+                <form id="report-form">
+                    <div class="form-group">
+                        <label for="report-type">Tipo de Denúncia</label>
+                        <select id="report-type" required>
+                            <option value="">Selecione o tipo</option>
+                            <option value="assedio">Assédio</option>
+                            <option value="discriminacao">Discriminação</option>
+                            <option value="corrupcao">Corrupção</option>
+                            <option value="fraude">Fraude</option>
+                            <option value="violencia">Violência</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="report-location">Local/Setor (opcional)</label>
+                        <input type="text" id="report-location" placeholder="Ex: Departamento X, Prédio Y">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="report-date">Data do Ocorrido (opcional)</label>
+                        <input type="date" id="report-date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="report-description">Descrição da Denúncia *</label>
+                        <textarea id="report-description" required placeholder="Descreva detalhadamente o que aconteceu. Quanto mais informações, melhor poderemos ajudar."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="report-evidence">Evidências/Detalhes Adicionais</label>
+                        <textarea id="report-evidence" placeholder="Mencione se possui evidências, documentos, testemunhas, etc."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">📤 Enviar Denúncia Anônima</button>
+                </form>
+
+                <div id="report-success" class="alert alert-success hidden">
+                    <h3>✅ Denúncia enviada com sucesso!</h3>
+                    <p>Seu código de acesso é:</p>
+                    <div class="code-display" id="access-code"></div>
+                    <p><strong>⚠️ IMPORTANTE:</strong> Salve este código! É a única forma de consultar o status da sua denúncia.</p>
+                </div>
+            </div>
+
+            <!-- Aba Consultar Denúncia -->
+            <div id="check-tab" class="tab-content">
+                <div class="anonymous-notice">
+                    🔍 Digite seu código de acesso para verificar o status da sua denúncia
+                </div>
+
+                <div class="form-group">
+                    <label for="check-code">Código de Acesso</label>
+                    <input type="text" id="check-code" placeholder="Digite o código recebido após enviar a denúncia" style="text-transform: uppercase;">
+                </div>
+
+                <button onclick="checkReport()" class="btn">🔍 Consultar Status</button>
+
+                <div id="check-result" class="hidden"></div>
+            </div>
+
+            <!-- Aba Administração -->
+            <div id="admin-tab" class="tab-content">
+                <div id="admin-login" class="login-form">
+                    <div class="anonymous-notice">
+                        🔐 Área restrita para administradores
+                    </div>
+
+                    <div class="form-group">
+                        <label for="admin-user">Usuário</label>
+                        <input type="text" id="admin-user" placeholder="Digite seu usuário" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="admin-pass">Senha</label>
+                        <input type="password" id="admin-pass" placeholder="Digite sua senha" required>
+                    </div>
+
+                    <div id="login-error" class="alert alert-error hidden">
+                        ❌ Credenciais inválidas! Verifique usuário e senha.
+                    </div>
+
+                    <button onclick="adminLogin()" class="btn">🔑 Entrar</button>
+                    
+                    <div style="margin-top: 20px; padding: 15px; background: hsl(30, 34%, 77%); border-radius: 10px; font-size: 0.9em;">
+                        <strong>🔑 Credenciais Padrão:</strong><br>
+                        <strong>Usuário:</strong> administrador<br>
+                        <strong>Senha:</strong> MinhaSenh@123!<br>
+                        <em>Altere essas credenciais após o primeiro login!</em>
+                    </div>
+                </div>
+
+                <div id="admin-panel" class="hidden">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2>📊 Painel Administrativo</h2>
+                        <div>
+                            <button onclick="showChangePassword()" class="btn" style="width: auto; padding: 10px 20px; margin-right: 10px; background: linear-gradient(135deg, #17a2b8, #138496);">🔑 Alterar Senha</button>
+                            <button onclick="clearAllData()" class="btn" style="width: auto; padding: 10px 20px; margin-right: 10px; background: linear-gradient(135deg, #dc3545, #c82333);">🗑️ Limpar Tudo</button>
+                            <button onclick="adminLogout()" class="btn btn-secondary" style="width: auto; padding: 10px 20px;">🚪 Sair</button>
+                        </div>
+                    </div>
+
+                    <div id="change-password-form" class="hidden" style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                        <h4>🔑 Alterar Credenciais de Administrador</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0;">
+                            <div>
+                                <label for="new-admin-user">Novo Usuário</label>
+                                <input type="text" id="new-admin-user" placeholder="Digite o novo usuário" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div>
+                                <label for="new-admin-pass">Nova Senha</label>
+                                <input type="password" id="new-admin-pass" placeholder="Digite a nova senha" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <button onclick="changeAdminPassword()" class="btn" style="width: auto; padding: 10px 20px; margin-right: 10px;">✅ Confirmar Alteração</button>
+                            <button onclick="hideChangePassword()" class="btn btn-secondary" style="width: auto; padding: 10px 20px;">❌ Cancelar</button>
+                        </div>
+                        <div id="password-change-result" class="hidden" style="margin-top: 15px;"></div>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <strong>Total de denúncias:</strong> <span id="total-reports">0</span>
+                    </div>
+
+                    <div id="admin-reports" class="reports-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-shield" title="Sistema Seguro e Anônimo">🛡️</div>
+    <div class="footer">
+        <p>© 2025 Canal de Denúncias Anônimas - Todos os direitos reservados</p>
+        <p>Desenvolvido por Kauã Vitorino</p>
+
+  <script src="script.js"></script>
+</body>
+</html>
