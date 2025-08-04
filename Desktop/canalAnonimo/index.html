@@ -85,6 +85,16 @@
                 </div>
 
                 <form id="report-form">
+                     <div class="form-group">
+                        <label for="report-type">Selecione a empresa</label>
+                        <select id="report-type" required>
+                            <option value="">Selecione</option>
+                            <option value="JGS">JGS</option>
+                            <option value="Jotauto">Jotauto</option>
+                            <option value="Gomes Vidigal">Gomes Vidigal</option>
+                            <option value="JGS Garantia">JGS Garantia</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="report-type">Tipo de Denúncia</label>
                         <select id="report-type" required>
@@ -100,7 +110,7 @@
 
                     <div class="form-group">
                         <label for="report-location">Local/Setor (opcional)</label>
-                        <input type="text" id="report-location" placeholder="Ex: Departamento X, Prédio Y">
+                        <input type="text" id="report-location" placeholder="Ex: Departamento X">
                     </div>
 
                     <div class="form-group">
