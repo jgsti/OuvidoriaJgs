@@ -5,8 +5,8 @@
         const STORAGE_KEY_TERMS = 'terms_accepted';
         
         // Credenciais padrão - ALTERE ESTAS CREDENCIAIS!
-        const DEFAULT_ADMIN_USER = 'administrador';
-        const DEFAULT_ADMIN_PASS = 'MinhaSenh@123!';
+        const DEFAULT_ADMIN_USER = 'jgsadmin';
+        const DEFAULT_ADMIN_PASS = 'JgS@2025!';
         
         // Dados em memória
         let reports = [];
